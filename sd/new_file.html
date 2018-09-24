@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>幸运大抽奖</title>
+		<style type="text/css">
+		#mn{
+		     	width: 500px;
+				height: 500px;
+				margin: auto;
+				position: absolute;
+				left: 0px;
+				right: 0px;
+				top: 300px;
+				bottom: 0px;
+				text-align: center;
+		}
+		#luckk{
+			    width: 500px;
+				height: 500px;
+				margin: auto;
+				position: absolute;
+				left: 0px;
+				right: 0px;
+				top: 350px;
+				bottom: 0px;
+				text-align: center;
+				color: red;
+		}
+		</style>
+		
+	</head>
+	<body>
+	<body>
+		<div id="luckly">
+				
+		</div>
+		<div id="mn">
+			
+		<h1>幸运大抽奖</h1>	
+		<input type="text" id="num"/>
+		<input type="button"  id="start" value="开始" onclick="go()";/>
+		<input type="button"  id="stop" value="停止" onclick="stop()";/>
+	
+		<p id="luckk"></p>
+		</div>
+		
+		<script type="text/javascript">
+	     var strpeople="卢伙银,王永超,任顾,周新月,饶雅斌,潘伟鹏,张韦华,傅宇翔,金佳乐,李尚阳,张熠帆,虞嘉豪,周乾,李鸿渊,刘逸腾,孙洁锋,吴佳华,李建涛,张丹阳,李沁辉,许慧雅,阮佳一,李昊,潘夏权,肖桐,王志望,王振华,何佳渝,丁锦铭,赵磊,徐文骏,牟式伟,方哲,潘晨凯,施宇航,李楚铃,陈嘉洛,潘煜鑫,凌康琪,骆文杰,史昊,张温北,陆华宇,茅徐超,汪耀"
+
+		 var arrpeople=strpeople.split(",");
+		 document.getElementById("luckly").innerHTML = strpeople;
+		 var a;
+		 var d;
+		
+		 var strpe=document.getElementById('luckk');
+		 console.log(arrpeople);
+		
+		 
+		 function luck()
+		 { 
+		 	a=Number(document.getElementById('num').value);
+		 	if(a==0||isNaN(a))
+		 {
+		 	a=3;
+		 }
+		 console.log(a);
+		 var arrz=new Array;
+		 	 for(var i=0;i<a;i++)
+		   {
+		   	
+		   	var a2=parseInt(Math.random()*arrpeople.length)
+		  	arrz.push(arrpeople[a2]);
+		  	arrpeople.slice(a2,1);
+		   }
+		   strpe.innerHTML=arrz.join(",");
+		 }
+		function go()
+		{
+			window.clearInterval(d);
+			d=setInterval("luck()",100);
+		}
+		function stop()
+		{
+			window.clearInterval(d);
+		}
+		</script>
+	</body>
+</html>
+
